@@ -1,0 +1,47 @@
+import java.io.*;
+import java.util.*;
+
+public class Cha12_22 {
+  public static void main(String[] args) throws Exception {
+    // Check command line parameter usage
+    if (args.length != 3) {
+      System.out.println(
+        "Usage: java directory targetFile oldStr newStr");
+      System.exit(1);
+    }
+
+    // Check if source file exists
+    File dir = new File(args[0]);
+    if (!dir.exists()) {
+      System.out.println("Source directory " + args[0] + " does not exist");
+      System.exit(2);
+    }
+
+    // get directory files
+    for(File file : dir.listFiles() ) {
+      String s2 = "";
+      try (
+        // Create input files
+        Scanner input = new Scanner(file);
+      ) {
+        while (input.hasNext()) {
+          String s1 = input.nextLine();
+          s2 += s1.replaceAll(args[1], args[2]) + "\n";
+        }
+      }
+
+      //delete old files and create new blank file for writing
+      //File newFile = new File(file.getName());
+      file.delete();
+      try (
+        // Create output files
+        PrintWriter output = new PrintWriter(file);
+      ) {
+          output.println(s2);
+      }
+      catch(IOException e) {
+        System.out.println("Failed to write");
+      }
+    }
+  }
+}

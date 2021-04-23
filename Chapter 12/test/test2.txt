@@ -1,0 +1,40 @@
+Creates a File object for the specied path name. The path name may be a
+ directory or a le.
+Creates a File object for the child under the directory parent. The child may be
+ a le name or a subdirectory.
+Creates a File object for the child under the directory parent. The parent is a
+File object. In the preceding constructor, the parent is a string.
+Returns true if the le or the directory represented by the File object exists.
+Returns true if the le represented by the File object exists and can be read.
+Returns true if the le represented by the File object exists and can be written.
+Returns true if the File object represents a directory.
+Returns true if the File object represents a le.
+Returns true if the File object is created using an absolute path name.
+Returns true if the le represented in the File object is hidden. The exact
+ denition of hidden is system dependent. On Windows, you can mark a le
+ hidden in the File Properties dialog box. On Unix systems, a le is hidden if
+ its name begins with a period (.) character.
+Returns the complete absolute le or directory name represented by the File
+ object.
+Returns the same as getAbsolutePath() except that it removes redundant
+ names, such as "." and ". .", from the path name, resolves symbolic links (on
+ Unix), and converts drive letters to standard uppercase (on Windows).
+Returns the last name of the complete directory and le name represented by
+ the File object. For example, new File("c:\\book\\test.dat").getName() returns
+test.dat.
+Returns the complete directory and le name represented by the File object.
+For example, new File("c:\\book\\test.dat").getPath() returns c:\book\test.dat.
+Returns the complete parent directory of the current directory or the le
+ represented by the File object. For example, new
+File("c:\\book\\test.dat").getParent() returns c:\book.
+Returns the time that the le was last modied.
+Returns the size of the le, or 0 if it does not exist or if it is a directory.
+Returns the les under the directory for a directory File object.
+Deletes the le or directory represented by this File object. The method returns
+ true if the deletion succeeds.
+Renames the le or directory represented by this File object to the specied name
+ represented in dest. The method returns true if the operation succeeds.
+Creates a directory represented in this File object. Returns true if the the directory is
+ created successfully.
+Same as mkdir() except that it creates directory along with its parent directories if
+ the parent directories do not exist.
